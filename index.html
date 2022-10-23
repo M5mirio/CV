@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+
+<body>
+    <label for="header_id">Header: </label>
+    <input id="header_id" type="text" name="header" required>
+    <input class="submit" type="submit" value="Submit">
+    <input class="remove" type="submit" value="Remove"><br>
+
+
+    <label for="header_child">Child: </label>
+    <input id="header_child_id" type="text" name="child" required onkeyup="hanldeClick()">
+    <input class="submit_child" type="submit" value="Submit">
+    <input class="remove_child" type="submit" value="Remove">
+
+</body>
+<script>
+    let header = document.getElementById("header_id");
+    let submit = document.querySelector(".submit");
+    let header_div = document.createElement("div");
+    let header_p = document.createElement("h4");
+    let remove_id = document.querySelector(".remove");
+    let submit_child = document.querySelector(".submit_child");
+    let child = document.getElementById("header_child_id");
+
+    var index = 0;
+    var tops = 20;
+
+    submit.addEventListener("click", sunmit_header);
+    remove_id.addEventListener("click", remove_header);
+    // submit_child.addEventListener("click", sunmit_child);
+
+    // function sunmit_child() {
+    //     if (child.value) {
+    //         let div_child = document.createElement("div");
+    //         index++;
+    //         tops += 20;
+    //         document.body.append(div_child);
+
+    //         div_child.style.minWidth = "150px";
+    //         div_child.style.minHeight = "30px";
+    //         div_child.style.border = "1px solid navy";
+    //         div_child.style.borderRadius = "2.5px 2.5px";
+    //         div_child.style.position = "absolute";
+    //         if (index % 2 == 0) {
+    //             div_child.style.top = `${tops}%`;
+    //             div_child.style.left = "75%";
+    //         } else {
+    //             div_child.style.top = `${tops}%`;
+    //             div_child.style.left = "25%";
+    //         }
+
+    //         div_child.style.transform = "translate(-50%)";
+    //         div_child.style.display = "flex";
+    //         div_child.style.justifyContent = "center";
+    //         div_child.style.alignItems = "center";
+    //         div_child.className = "header_id";
+    //     }
+    // }
+    //underfined "" NaN false
+    function sunmit_header() {
+        if (header.value) {
+            document.body.appendChild(header_div);
+            header_div.appendChild(header_p);
+            header_div.style.minWidth = "150px";
+            header_div.style.minHeight = "30px";
+            header_div.style.border = "1px solid navy";
+            header_div.style.borderRadius = "2.5px 2.5px";
+            header_div.style.position = "absolute";
+            header_div.style.top = "20%";
+            header_div.style.left = "50%";
+            header_div.style.transform = "translate(-50%)";
+            header_div.style.display = "flex";
+            header_div.style.justifyContent = "center";
+            header_div.style.alignItems = "center";
+            header_div.className = "header_id";
+            //  e .target.value
+            header_p.innerText = header.value;
+            // header_p.style.fontSize = "14px"
+            header_p.style.fontFamily = "Arial";
+        }
+    }
+
+    function remove_header() {
+        let check_header_div = document.querySelector(".header_id");
+
+        if (check_header_div) {
+            header_div.remove();
+        }
+    }
+
+    function hanldeClick() {
+        let inputValue = document.getElementById("header_child_id").value;
+        console.log(inputValue)
+
+
+        if (inputValue.value) {
+            switch (inputValue.value) {
+                case 1:
+                    inputValue.value == "a";
+                    console.log("ua aloo")
+                    break;
+
+                default:
+                // code block
+            }
+        }
+    }
+</script>
+
+</html>
